@@ -1,0 +1,3 @@
+# Internal strategy version — never publish (repo is public)
+private/
+.DS_Store
