@@ -2,7 +2,14 @@
 
 A homepage concept for Lotus Frequency Healing: "Copper & Pine".
 
-**Live preview:** https://yourmedicals-tech.github.io/lotus-frequency-concept/
+**Two colour directions, same layout — compare side by side:**
+
+| Direction | Live |
+|---|---|
+| Copper & Pine | https://yourmedicals-tech.github.io/lotus-frequency-concept/ |
+| Turquoise & Rose | https://yourmedicals-tech.github.io/lotus-frequency-concept/aqua/ |
+
+The Turquoise & Rose version also carries a redrawn logo mark: a lotus resting on a sine wave.
 
 - Single self-contained `index.html` — fonts inlined, no external requests.
 - Hero is a live Chladni-plate simulation: particles settle onto the standing-wave
