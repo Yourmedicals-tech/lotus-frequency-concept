@@ -24,12 +24,12 @@
   .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter);}
   .serif{font-family:'CG',Georgia,serif;}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;cursor:pointer;
-        font-family:'K';font-weight:600;font-size:.9rem;letter-spacing:.02em;padding:.9rem 1.6rem;
-        border-radius:999px;border:1.5px solid transparent;transition:.2s;white-space:nowrap;}
+        font-family:'K';font-weight:700;font-size:.82rem;letter-spacing:.09em;text-transform:uppercase;
+        padding:.95rem 1.7rem;border-radius:2px;border:1.5px solid transparent;transition:.2s;white-space:nowrap;}
   .btn-rose{background:var(--rose);color:#fff;}
   .btn-rose:hover{background:var(--rose-d);transform:translateY(-1px);}
-  .btn-line{border-color:var(--accent);color:var(--teal-d);background:transparent;}
-  .btn-line:hover{background:var(--bg2);}
+  .btn-line{border-color:var(--rose);color:var(--rose-d);background:transparent;}
+  .btn-line:hover{background:var(--rose);color:#fff;}
 
   /* version switcher */
   .vswitch{background:var(--ink);color:#fff;display:flex;align-items:center;gap:.15rem;flex-wrap:wrap;
@@ -45,6 +45,13 @@
   .util .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:42px;}
   .util .c{font-family:'CG',serif;font-style:italic;font-size:.95rem;color:var(--teal-d);}
   .util .r a{color:var(--rose-d);font-weight:600;letter-spacing:.03em;}
+  .util .l>a{color:var(--gold);}
+  .util .soc{display:inline-flex;gap:.5rem;margin-left:.15rem;}
+  .util .soc a{display:inline-grid;place-items:center;}
+  .util .soc a:nth-child(1){color:#D6206E;}
+  .util .soc a:nth-child(2){color:#1877F2;}
+  .util .soc a:nth-child(3){color:#0A66C2;}
+  .util .soc a:hover{opacity:.7;}
   .util .l,.util .r{display:flex;gap:1rem;align-items:center;}
   @media (max-width:820px){.util .l,.util .c{display:none;} .util .wrap{justify-content:center;}}
 
@@ -58,9 +65,12 @@
   .logo .l1{font-family:'CG',serif;font-weight:600;font-size:1.5rem;letter-spacing:.14em;color:var(--logo);}
   .logo .l2{font-size:.54rem;font-weight:600;letter-spacing:.34em;color:var(--muted);margin-top:.4rem;padding-left:.14em;}
   .nav{display:flex;gap:.2rem;align-items:center;}
-  .nav a{padding:.55rem .7rem;font-size:.82rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  .nav a{padding:.5rem .52rem;font-size:.8rem;font-weight:600;letter-spacing:.02em;text-transform:uppercase;
           color:var(--ink);border-radius:8px;transition:.18s;}
   .nav a:hover{color:var(--rose-d);}
+  .nav a.on{color:var(--rose-d);position:relative;}
+  .nav a.on::after{content:"";position:absolute;left:.7rem;right:.7rem;bottom:1px;height:2px;background:var(--rose);}
+  .nav .car{font-style:normal;font-size:.72em;opacity:.55;margin-left:.15em;}
   .nav .navcta{display:none;}
   .burger{display:none;width:48px;height:48px;flex:none;border:1.5px solid var(--line);border-radius:12px;
            background:transparent;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;}
@@ -98,14 +108,14 @@
 
   /* full-bleed lotus video hero (direction 1) */
   .hero-video{position:relative;overflow:hidden;min-height:clamp(460px,52vw,600px);display:flex;align-items:center;}
-  .hero-video .hv-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% center;z-index:0;}
+  .hero-video .hv-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;transform:scale(1.12) translateX(6%);transform-origin:center;}
   .hero-video .hv-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
     background:linear-gradient(100deg,#FBF7F2 0%,rgba(251,247,242,.94) 26%,rgba(251,247,242,.55) 46%,rgba(251,247,242,0) 64%);}
   .hero-video .hv-wrap{position:relative;z-index:2;width:100%;}
   .hero-video .hs-copy{max-width:34rem;}
   @media (max-width:820px){
     .hero-video{flex-direction:column-reverse;min-height:0;}
-    .hero-video .hv-media{position:relative;width:100%;height:auto;aspect-ratio:1264/596;}
+    .hero-video .hv-media{position:relative;width:100%;height:auto;aspect-ratio:1264/596;transform:none;}
     .hero-video .hv-scrim{display:none;}
     .hero-video .hv-wrap{padding-block:1.75rem 0;}
     .hero-video .hs-copy{max-width:100%;}
@@ -119,19 +129,22 @@
   .head p{margin-top:.9rem;color:var(--muted);}
 
   /* categories */
-  .cats{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);
-         border:1px solid var(--line);border-radius:18px;overflow:hidden;}
-  @media (max-width:1000px){.cats{grid-template-columns:repeat(3,1fr);}}
+  .cats{display:grid;grid-template-columns:repeat(6,1fr);}
+  @media (max-width:1000px){.cats{grid-template-columns:repeat(3,1fr);row-gap:2.25rem;}}
   @media (max-width:640px){.cats{grid-template-columns:repeat(2,1fr);}}
-  .cat{background:var(--bg);padding:1.9rem 1.2rem;text-align:center;display:flex;flex-direction:column;
-        align-items:center;gap:.7rem;transition:.25s;}
-  .cat:hover{background:var(--bg2);}
-  .ci{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;
-       background:var(--halo);color:var(--accent);transition:.25s;}
-  .cat:hover .ci{transform:translateY(-4px);}
-  .ci svg{width:28px;height:28px;}
-  .cat h3{font-family:'CG',serif;font-size:1.18rem;color:var(--teal-d);letter-spacing:.01em;}
-  .cat p{font-size:.85rem;color:var(--muted);line-height:1.55;}
+  .cat{padding:1.4rem 1.2rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.55rem;
+        border-left:1px solid var(--line);}
+  .cat:first-child{border-left:0;}
+  @media (max-width:1000px){.cat:nth-child(3n+1){border-left:0;}}
+  @media (max-width:640px){.cat:nth-child(odd){border-left:0;} .cat:nth-child(even){border-left:1px solid var(--line);}}
+  .ci{height:54px;display:grid;place-items:center;}
+  .ci svg{width:50px;height:50px;}
+  .cat h3{font-family:'K';font-weight:700;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;
+           color:var(--teal-d);margin-top:.3rem;}
+  .cat .cdiv{width:34px;height:2px;background:var(--gold);border-radius:2px;}
+  .cat p{font-size:.82rem;color:var(--body);line-height:1.6;max-width:22ch;}
+
+  .wcwave{display:block;width:100%;height:clamp(48px,6vw,84px);margin-top:1rem;}
 
   /* pillars strip */
   .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
@@ -207,7 +220,7 @@
     <path d="M12.63 28.42 A38.8 38.8 0 0 1 59.66 55.58 A38.8 38.8 0 0 1 12.63 28.42 Z"/>
   </g></svg><span class="wm"><span class="l1">LOTUS</span><span class="l2">FREQUENCY HEALING</span></span></a>
   <nav class="nav" id="nav" aria-label="Main">
-    <a href="#top">Home</a><a href="#about">About</a><a href="#services">Healing Services <i class="car">▾</i></a>
+    <a href="#top" class="on">Home</a><a href="#about">About</a><a href="#services">Healing Services <i class="car">▾</i></a>
     <a href="#services">Devices <i class="car">▾</i></a><a href="#member">Membership</a><a href="#services">Shop</a>
     <a href="#book">Book</a><a href="#contact">Contact</a>
     <div class="navcta"><a class="btn btn-rose" href="#book">Book a Session</a></div>
@@ -250,31 +263,37 @@
       <p>Start wherever you are. Each path can stand alone — or weave together into something whole.</p>
     </div>
     <div class="cats">
-        <a class="cat rv" href="#services">
-          <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3c0 5 10 6 10 11S7 20 7 21M17 3c0 5-10 6-10 11s10 5 10 6M8.5 6h7M8.5 18h7M9.5 9.5h5M9.5 14.5h5"/></svg></span>
-          <h3>Frequency Medicine</h3><p>Advanced technology to detect, rebalance and support the body at the root.</p>
-        </a>
-        <a class="cat rv" href="#services">
-          <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-5-1-8-5-8-10 6 0 12 3 12 10M12 21c0-6 3-9 8-10"/></svg></span>
-          <h3>Nutrition &amp; Genetics</h3><p>Personalised nutrition and genetic insight for long-term wellness.</p>
-        </a>
-        <a class="cat rv" href="#services">
-          <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M12 8v6M6 21l6-7 6 7M5 12h14"/></svg></span>
-          <h3>Yoga &amp; Breath</h3><p>Movement, breath and conscious awareness to restore harmony.</p>
-        </a>
-        <a class="cat rv" href="#services">
-          <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span>
-          <h3>Energy Healing</h3><p>Subtle energy therapies to release, realign and restore flow.</p>
-        </a>
-        <a class="cat rv" href="#services">
-          <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.6-7-9.5A3.6 3.6 0 0 1 12 8a3.6 3.6 0 0 1 7 2.5C19 15.4 12 20 12 20Z"/><path d="M12 15c-1.5-1-2.5-2-2.5-3.2A1.4 1.4 0 0 1 12 11a1.4 1.4 0 0 1 2.5.8C14.5 13 13.5 14 12 15Z"/></svg></span>
-          <h3>Mind &amp; Soul</h3><p>Hypnosis, inner work and guidance to reconnect with yourself.</p>
-        </a>
-        <a class="cat rv" href="#services">
-          <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><circle cx="6.8" cy="9" r="3"/><circle cx="17.2" cy="9" r="3"/><circle cx="6.8" cy="15" r="3"/><circle cx="17.2" cy="15" r="3"/></svg></span>
-          <h3>Whole You</h3><p>A holistic approach that supports body, mind, energy and soul.</p>
-        </a></div>
-  </div></section>
+        <div class="cat rv">
+          <span class="ci"><svg viewBox="0 0 48 48"><g fill="none" stroke-linecap="round" stroke-width="2"><path d="M16 5c0 11 16 12 16 22S16 39 16 43" stroke="var(--teal)"/><path d="M32 5c0 11-16 12-16 22s16 11 16 16" stroke="var(--rose)"/><g stroke="var(--gold)" stroke-width="1.4"><path d="M18 12h12M19 18h10M19 30h10M18 36h12"/></g></g></svg></span>
+          <h3>Frequency Medicine</h3><span class="cdiv"></span><p>Advanced technology to detect, heal and rebalance at the root cause.</p>
+        </div>
+        <div class="cat rv">
+          <span class="ci"><svg viewBox="0 0 48 48"><g fill="none" stroke="var(--rose)" stroke-width="2" stroke-linejoin="round"><path d="M24 40 C18 32 18 22 24 14 C30 22 30 32 24 40Z"/><path d="M24 40 C14 37 9 29 8 21 C16 23 22 31 24 40Z"/><path d="M24 40 C34 37 39 29 40 21 C32 23 26 31 24 40Z"/><path d="M24 40 C11 39 5 33 4 27 C13 28 20 34 24 40Z" opacity=".55"/><path d="M24 40 C37 39 43 33 44 27 C35 28 28 34 24 40Z" opacity=".55"/></g></svg></span>
+          <h3>Nutrition &amp; Genetics</h3><span class="cdiv"></span><p>Personalised nutrition and genetic insights for long term wellness.</p>
+        </div>
+        <div class="cat rv">
+          <span class="ci"><svg viewBox="0 0 48 48"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="13" r="9" stroke="var(--gold)" stroke-width="1.4"/><circle cx="24" cy="15" r="3.4" stroke="var(--teal)" stroke-width="2"/><path d="M24 19v9M11 40 L24 28 L37 40M13 30h22" stroke="var(--teal)" stroke-width="2"/></g></svg></span>
+          <h3>Yoga &amp; Breath</h3><span class="cdiv"></span><p>Movement, breath and conscious awareness to restore harmony.</p>
+        </div>
+        <div class="cat rv">
+          <span class="ci"><svg viewBox="0 0 48 48"><g fill="none" stroke-width="2"><circle cx="24" cy="24" r="18" stroke="var(--gold)"/><circle cx="24" cy="24" r="11" stroke="var(--gold)"/><circle cx="24" cy="24" r="4.5" fill="var(--rose)" stroke="none"/></g></svg></span>
+          <h3>Energy Healing</h3><span class="cdiv"></span><p>Subtle energy therapies to release, realign and restore flow.</p>
+        </div>
+        <div class="cat rv">
+          <span class="ci"><svg viewBox="0 0 48 48"><g fill="none" stroke="var(--rose)" stroke-linejoin="round"><path d="M24 41 C9 30 5 22 5 16 A9.5 9.5 0 0 1 24 12 A9.5 9.5 0 0 1 43 16 C43 22 39 30 24 41Z" stroke-width="2"/><g stroke-width="1.3"><path d="M24 31 C21 27 21 23 24 19 C27 23 27 27 24 31Z"/><path d="M24 31 C19 29 17 25 17 22 C21 23 23 27 24 31Z"/><path d="M24 31 C29 29 31 25 31 22 C27 23 25 27 24 31Z"/></g></g></svg></span>
+          <h3>Mind &amp; Soul</h3><span class="cdiv"></span><p>Hypnosis, inner work and guidance to reconnect with your true self.</p>
+        </div>
+        <div class="cat rv">
+          <span class="ci"><svg viewBox="0 0 48 48"><g fill="none" stroke="var(--gold)" stroke-width="1.4"><circle cx="24" cy="24" r="7"/><circle cx="24" cy="17.5" r="7"/><circle cx="24" cy="30.5" r="7"/><circle cx="18.4" cy="20.75" r="7"/><circle cx="29.6" cy="20.75" r="7"/><circle cx="18.4" cy="27.25" r="7"/><circle cx="29.6" cy="27.25" r="7"/><circle cx="24" cy="24" r="14"/></g></svg></span>
+          <h3>Whole You</h3><span class="cdiv"></span><p>A holistic approach that supports your body, mind, energy and soul.</p>
+        </div></div>
+  </div>
+  <svg class="wcwave" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 46 Q100 20 200 42 T400 44 T600 40 T800 46 T1000 40 T1200 44 V90 H0Z" fill="var(--teal)" opacity=".10"/>
+    <path d="M0 58 Q120 34 240 54 T480 54 T720 50 T960 56 T1200 52 V90 H0Z" fill="var(--teal)" opacity=".16"/>
+    <path d="M0 70 Q140 50 280 66 T560 64 T840 66 T1120 62 T1200 66 V90 H0Z" fill="var(--teal)" opacity=".22"/>
+  </svg>
+  </section>
 
   <section class="bay band" id="about"><div class="wrap">
     <div class="head rv">
